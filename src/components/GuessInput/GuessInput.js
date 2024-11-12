@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function GuessInput({ handleSubmitGuesses }) {
+function GuessInput({ handleSubmitGuesses, isGameOver }) {
   const [tentativeGuess, setTentativeGuess] = useState('');
   const handleChange = (e) => {
     setTentativeGuess(e.target.value.toUpperCase());
@@ -19,6 +19,7 @@ function GuessInput({ handleSubmitGuesses }) {
         required
         minLength={5}
         maxLength={5}
+        disabled={isGameOver}
         id="guess-input"
         type="text"
         value={tentativeGuess}
